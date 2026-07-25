@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mb-10 flex flex-wrap justify-between gap-10">
         <div>
           <div className="mb-3 font-display text-[26px]">
-            THRIFT<span className="text-accent">LAND</span>
+            THRIFT<span className="text-accent-ink">LAND</span>
           </div>
           <div className="max-w-70 text-sm leading-relaxed opacity-60">
             Men&rsquo;s pre-loved sneakers, inspected and cleaned. Direct to your WhatsApp.

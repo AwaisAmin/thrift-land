@@ -7,7 +7,8 @@
   --fg: #16150f;
   --line: rgba(22, 21, 15, 0.14);
   --card-bg: rgba(22, 21, 15, 0.035);
-  --accent: #d4ff3d;
+  --accent: #c7dd5a;
+  --accent-ink: #5c6b1a;
 }
 
 .dark {
@@ -18,6 +19,7 @@
   --card-bg: rgba(245, 241, 232, 0.05);
   --bg-solid: #0b0b0d;
   --accent: #d4ff3d;
+  --accent-ink: #d4ff3d;
 }
 
 @theme inline {
@@ -27,6 +29,7 @@
   --color-line: var(--line);
   --color-card: var(--card-bg);
   --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
   --color-bg-solid: var(--bg-solid);
   --animate-spin-slow: spin-slow 14s linear infinite;
   --animate-pulse-ring: pulse-ring 2.2s infinite;

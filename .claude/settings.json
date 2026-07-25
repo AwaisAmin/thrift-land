@@ -13,7 +13,9 @@
       "Bash(grep -n -- \"--bg-solid\\\\|--fg:\" /tmp/app.css)",
       "Bash(curl -s http://localhost:3000/ -o /tmp/home3.html)",
       "Bash(curl -s \"http://localhost:3000/_next/static/chunks/%5Broot-of-the-server%5D__0k-h2jt._.css\" -o /tmp/app2.css)",
-      "Bash(sed -n '505,522p' /tmp/app2.css)"
+      "Bash(sed -n '505,522p' /tmp/app2.css)",
+      "Skill(artifact-design)",
+      "Skill(artifact-design:*)"
     ]
   }
 }

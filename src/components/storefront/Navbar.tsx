@@ -21,7 +21,7 @@ export function Navbar() {
   return (
     <nav className="bg-nav-surface fixed inset-x-0 top-0 z-50 flex items-center justify-between border-b border-line px-[5vw] py-5 backdrop-blur-md">
       <div className="font-display text-[22px] tracking-wide">
-        THRIFT<span className="text-accent">LAND</span>
+        THRIFT<span className="text-accent-ink">LAND</span>
       </div>
       <div className="flex items-center gap-8 text-sm font-semibold tracking-wide uppercase">
         {NAV_LINKS.map((link) => (

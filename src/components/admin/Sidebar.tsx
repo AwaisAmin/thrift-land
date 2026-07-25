@@ -5,7 +5,7 @@ export function Sidebar() {
   return (
     <aside className="flex w-57.5 shrink-0 flex-col gap-9 border-r border-line px-5 py-7">
       <div className="font-display text-xl tracking-wide">
-        THRIFT<span className="text-accent">LAND</span>
+        THRIFT<span className="text-accent-ink">LAND</span>
         <div className="mt-1 font-sans text-[11px] tracking-[2px] opacity-50">ADMIN</div>
       </div>
       <nav className="flex flex-col gap-1">

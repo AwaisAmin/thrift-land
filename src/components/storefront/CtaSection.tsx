@@ -10,7 +10,7 @@ export function CtaSection() {
         <div className="mb-9 font-display text-[clamp(38px,7vw,96px)] leading-none uppercase">
           YOUR NEXT PAIR IS
           <br />
-          <span className="text-accent">ALREADY WORN IN.</span>
+          <span className="text-accent-ink">ALREADY WORN IN.</span>
         </div>
         <a
           href={waLink}

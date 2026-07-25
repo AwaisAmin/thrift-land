@@ -10,7 +10,7 @@ export function Hero() {
     <section className="relative z-10 flex min-h-screen flex-col justify-center px-[5vw] pt-35 pb-15">
       <div className="grid items-center gap-10 md:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <div className="text-accent mb-4.5 text-[13px] font-bold tracking-[3px] uppercase">
+          <div className="text-accent-ink mb-4.5 text-[13px] font-bold tracking-[3px] uppercase">
             Men&rsquo;s Pre-Loved Sneakers
           </div>
           <h1 className="font-display text-[clamp(56px,9vw,128px)] leading-[0.94] uppercase">
@@ -18,7 +18,7 @@ export function Hero() {
             <br />
             HAND.
             <br />
-            <span className="text-accent">FIRST</span> CLASS.
+            <span className="text-accent-ink">FIRST</span> CLASS.
           </h1>
           <p className="mt-7 mb-9 max-w-120 text-lg leading-relaxed opacity-75">
             Every pair inspected, cleaned, and condition-rated before it reaches you. Real kicks, real
@@ -42,7 +42,7 @@ export function Hero() {
           </div>
         </div>
         <div className="relative">
-          <div className="border-accent animate-spin-slow absolute top-[-30px] right-0 z-[2] flex h-27.5 w-27.5 items-center justify-center rounded-full border-2 border-dashed text-center font-display text-xs tracking-wide uppercase">
+          <div className="border-accent-ink animate-spin-slow absolute top-[-30px] right-0 z-[2] flex h-27.5 w-27.5 items-center justify-center rounded-full border-2 border-dashed text-center font-display text-xs tracking-wide uppercase">
             100% AUTHENTIC CHECKED
           </div>
           <div className="aspect-4/5 overflow-hidden rounded-3xl shadow-[0_40px_80px_-20px_rgba(0,0,0,0.35)]">

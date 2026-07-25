@@ -9,7 +9,7 @@ export function StorySection() {
           <ImageSlot label="Drop a shop/founder photo" alt="Thrift Land founder" />
         </div>
         <div>
-          <div className="text-accent mb-4.5 text-[13px] font-bold tracking-[3px] uppercase">Our Story</div>
+          <div className="text-accent-ink mb-4.5 text-[13px] font-bold tracking-[3px] uppercase">Our Story</div>
           <h2 className="mb-6 font-display text-[clamp(32px,4.5vw,54px)] leading-tight uppercase">
             Every Pair Has Already Lived A Life.
           </h2>
