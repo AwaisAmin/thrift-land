@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(which chromium-cli *)",
+      "Read(//c/Users/Lenovo/.claude/**)",
+      "Read(//d//**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000)",
+      "Bash(where chrome.exe)",
+      "Bash(where msedge.exe)",
+      "Bash(curl -s http://localhost:3000/ -o /tmp/home.html)",
+      "Read(//tmp/**)",
+      "Bash(curl -s http://localhost:3000/ -o /tmp/home2.html)",
+      "Bash(grep -n -- \"--bg-solid\\\\|--fg:\" /tmp/app.css)",
+      "Bash(curl -s http://localhost:3000/ -o /tmp/home3.html)",
+      "Bash(curl -s \"http://localhost:3000/_next/static/chunks/%5Broot-of-the-server%5D__0k-h2jt._.css\" -o /tmp/app2.css)",
+      "Bash(sed -n '505,522p' /tmp/app2.css)"
+    ]
+  }
+}
