@@ -16,7 +16,7 @@ export function AdminHeader() {
         <h1 className="font-display text-3xl uppercase">Inventory</h1>
         <div className="mt-1 text-sm opacity-55">Manage listings shown on the storefront</div>
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex flex-wrap items-center gap-3">
         <ThemeToggleButton darkMode={darkMode} onToggle={toggleTheme} size={40} />
         <button
           onClick={openAddModal}

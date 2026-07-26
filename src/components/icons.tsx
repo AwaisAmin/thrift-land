@@ -111,6 +111,16 @@ export function PlusIcon({ className, size = 14 }: IconProps) {
   );
 }
 
+export function MenuIcon({ className, size = 18 }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" className={className} {...base}>
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <line x1="3" y1="12" x2="21" y2="12" />
+      <line x1="3" y1="18" x2="21" y2="18" />
+    </svg>
+  );
+}
+
 export function ShoeIcon({ className, size = 32 }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" className={className} {...base}>
