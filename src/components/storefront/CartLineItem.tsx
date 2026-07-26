@@ -1,5 +1,6 @@
 import type { CartLine } from "@/lib/types";
 import { formatRs } from "@/lib/format";
+import { ImageSlot } from "../ui/ImageSlot";
 
 interface CartLineItemProps {
   line: CartLine;
@@ -12,8 +13,8 @@ export function CartLineItem({ line, onInc, onDec }: CartLineItemProps) {
 
   return (
     <div className="flex items-center gap-3.5 border-b border-line py-4">
-      <div className="flex h-15 w-15 shrink-0 items-center justify-center rounded-xl border border-line bg-card font-display text-lg">
-        {product.condition}
+      <div className="h-15 w-15 shrink-0 overflow-hidden rounded-xl border border-line bg-card">
+        <ImageSlot src={product.photoUrl} alt={product.name} compact />
       </div>
       <div className="flex-1">
         <div className="text-[15px] font-bold">{product.name}</div>

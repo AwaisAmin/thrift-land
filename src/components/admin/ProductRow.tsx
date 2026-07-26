@@ -1,6 +1,7 @@
 import type { Product } from "@/lib/types";
 import { formatRs } from "@/lib/format";
 import { Badge } from "../ui/Badge";
+import { ImageSlot } from "../ui/ImageSlot";
 import { EditIcon, TrashIcon } from "../icons";
 
 const GRID_COLS = "grid-cols-[56px_2fr_0.8fr_0.9fr_1fr_0.9fr_90px]";
@@ -14,8 +15,8 @@ interface ProductRowProps {
 export function ProductRow({ product, onEdit, onDelete }: ProductRowProps) {
   return (
     <div className={`grid ${GRID_COLS} items-center gap-3 border-b border-line px-5 py-3.5 text-sm`}>
-      <div className="flex h-10 w-10 items-center justify-center rounded-[10px] bg-card font-display text-[11px]">
-        {product.condition}
+      <div className="h-10 w-10 overflow-hidden rounded-[10px] bg-card">
+        <ImageSlot src={product.photoUrl} alt={product.name} compact />
       </div>
       <div className="font-bold">{product.name}</div>
       <div>EU {product.size}</div>
