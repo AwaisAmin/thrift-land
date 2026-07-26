@@ -44,6 +44,9 @@ interface AdminProductsContextValue {
   setPhotoFile: (file: File) => void;
   saveProduct: () => void;
   deleteProduct: (id: string) => void;
+  deleteTarget: Product | null;
+  confirmDelete: () => void;
+  cancelDelete: () => void;
 }
 
 const AdminProductsContext = createContext<AdminProductsContextValue | null>(null);
@@ -63,6 +66,7 @@ export function AdminProductsProvider({
   const [photoFile, setPhotoFileState] = useState<File | null>(null);
   const [photoObjectUrl, setPhotoObjectUrl] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const [deleteTargetId, setDeleteTargetId] = useState<string | null>(null);
 
   // Revoke the previous blob URL whenever it's replaced or the provider unmounts.
   useEffect(() => {
@@ -130,11 +134,17 @@ export function AdminProductsProvider({
     }
   }, [form, editingId, photoFile]);
 
-  const deleteProduct = async (id: string) => {
-    if (typeof window !== "undefined" && !window.confirm("Remove this listing?")) return;
+  const deleteProduct = (id: string) => setDeleteTargetId(id);
+
+  const cancelDelete = () => setDeleteTargetId(null);
+
+  const confirmDelete = useCallback(async () => {
+    const id = deleteTargetId;
+    if (!id) return;
+    setDeleteTargetId(null);
     setProducts((prev) => prev.filter((p) => p.id !== id));
     await deleteProductAction(id);
-  };
+  }, [deleteTargetId]);
 
   const value = useMemo<AdminProductsContextValue>(
     () => ({
@@ -154,8 +164,22 @@ export function AdminProductsProvider({
       setPhotoFile,
       saveProduct,
       deleteProduct,
+      deleteTarget: products.find((p) => p.id === deleteTargetId) ?? null,
+      confirmDelete,
+      cancelDelete,
     }),
-    [products, modalOpen, editingId, photoSeed, form, photoObjectUrl, saving, saveProduct]
+    [
+      products,
+      modalOpen,
+      editingId,
+      photoSeed,
+      form,
+      photoObjectUrl,
+      saving,
+      saveProduct,
+      deleteTargetId,
+      confirmDelete,
+    ]
   );
 
   return <AdminProductsContext.Provider value={value}>{children}</AdminProductsContext.Provider>;

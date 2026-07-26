@@ -7,6 +7,7 @@ import { AdminHeader } from "./AdminHeader";
 import { StatsGrid } from "./StatsGrid";
 import { ProductsTable } from "./ProductsTable";
 import { ProductFormModal } from "./ProductFormModal";
+import { DeleteProductDialog } from "./DeleteProductDialog";
 import type { Product } from "@/lib/types";
 
 function AdminContent() {
@@ -21,6 +22,7 @@ function AdminContent() {
         <ProductsTable />
       </main>
       <ProductFormModal />
+      <DeleteProductDialog />
     </div>
   );
 }
