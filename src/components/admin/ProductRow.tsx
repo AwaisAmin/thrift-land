@@ -28,14 +28,14 @@ export function ProductRow({ product, onEdit, onDelete }: ProductRowProps) {
         <button
           onClick={() => onEdit(product)}
           title="Edit"
-          className="flex h-7.5 w-7.5 cursor-pointer items-center justify-center rounded-lg border border-line bg-transparent text-fg"
+          className="flex h-7.5 w-7.5 cursor-pointer items-center justify-center rounded-lg border border-line bg-transparent text-fg transition-colors duration-200 hover:bg-card"
         >
           <EditIcon />
         </button>
         <button
           onClick={() => onDelete(product.id)}
           title="Delete"
-          className="flex h-7.5 w-7.5 cursor-pointer items-center justify-center rounded-lg border border-line bg-transparent text-fg"
+          className="flex h-7.5 w-7.5 cursor-pointer items-center justify-center rounded-lg border border-line bg-transparent text-fg transition-colors duration-200 hover:border-red-500 hover:text-red-500"
         >
           <TrashIcon />
         </button>

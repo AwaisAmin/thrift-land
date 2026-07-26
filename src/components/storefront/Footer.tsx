@@ -17,19 +17,27 @@ export function Footer() {
         <div className="flex flex-wrap gap-15">
           <div>
             <div className="mb-3.5 text-xs font-bold tracking-wide uppercase opacity-50">Contact</div>
-            <a href={waLink} target="_blank" rel="noopener noreferrer" className="mb-2 block text-[15px]">
+            <a
+              href={waLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mb-2 block text-[15px] transition-opacity duration-200 hover:opacity-60"
+            >
               WhatsApp: +92 329 4487266
             </a>
-            <a href="#" className="block text-[15px]">
+            <a href="#" className="block text-[15px] transition-opacity duration-200 hover:opacity-60">
               @thriftland on Instagram
             </a>
           </div>
           <div>
             <div className="mb-3.5 text-xs font-bold tracking-wide uppercase opacity-50">Explore</div>
-            <a href="#shop" className="mb-2 block text-[15px]">
+            <a
+              href="#shop"
+              className="mb-2 block text-[15px] transition-opacity duration-200 hover:opacity-60"
+            >
               Shop
             </a>
-            <a href="#story" className="block text-[15px]">
+            <a href="#story" className="block text-[15px] transition-opacity duration-200 hover:opacity-60">
               Story
             </a>
           </div>

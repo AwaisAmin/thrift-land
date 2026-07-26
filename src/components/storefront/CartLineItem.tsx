@@ -24,7 +24,7 @@ export function CartLineItem({ line, onInc, onDec }: CartLineItemProps) {
           <button
             onClick={() => onDec(product.id)}
             aria-label="Decrease quantity"
-            className="flex h-6 w-6 cursor-pointer items-center justify-center rounded-full border-none bg-line text-fg leading-none"
+            className="flex h-6 w-6 cursor-pointer items-center justify-center rounded-full border-none bg-line text-fg leading-none transition-transform duration-150 hover:scale-110 active:scale-95"
           >
             −
           </button>
@@ -32,7 +32,7 @@ export function CartLineItem({ line, onInc, onDec }: CartLineItemProps) {
           <button
             onClick={() => onInc(product.id)}
             aria-label="Increase quantity"
-            className="bg-accent flex h-6 w-6 cursor-pointer items-center justify-center rounded-full border-none text-[#0b0b0d] leading-none"
+            className="bg-accent flex h-6 w-6 cursor-pointer items-center justify-center rounded-full border-none text-[#0b0b0d] leading-none transition-transform duration-150 hover:scale-110 active:scale-95"
           >
             +
           </button>

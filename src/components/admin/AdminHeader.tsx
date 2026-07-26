@@ -20,13 +20,13 @@ export function AdminHeader() {
         <ThemeToggleButton darkMode={darkMode} onToggle={toggleTheme} size={40} />
         <button
           onClick={openAddModal}
-          className="bg-accent flex cursor-pointer items-center gap-1.5 rounded-full border-none px-5 py-3 text-[13px] font-bold tracking-wide whitespace-nowrap text-[#0b0b0d] uppercase"
+          className="bg-accent flex cursor-pointer items-center gap-1.5 rounded-full border-none px-5 py-3 text-[13px] font-bold tracking-wide whitespace-nowrap text-[#0b0b0d] uppercase transition-opacity duration-200 hover:opacity-85"
         >
           <PlusIcon /> Add Listing
         </button>
         <button
           onClick={() => signOutAdmin()}
-          className="text-fg cursor-pointer rounded-full border border-line bg-transparent px-5 py-3 text-[13px] font-bold tracking-wide whitespace-nowrap uppercase"
+          className="text-fg cursor-pointer rounded-full border border-line bg-transparent px-5 py-3 text-[13px] font-bold tracking-wide whitespace-nowrap uppercase transition-colors duration-200 hover:bg-card"
         >
           Sign Out
         </button>

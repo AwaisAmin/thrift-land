@@ -25,7 +25,7 @@ export function ProductGrid({ products }: { products: Product[] }) {
             href={waLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-fg text-bg-solid mt-1 rounded-full px-6 py-3 text-[13px] font-bold tracking-wide uppercase"
+            className="bg-fg text-bg-solid mt-1 rounded-full px-6 py-3 text-[13px] font-bold tracking-wide uppercase transition-opacity duration-200 hover:opacity-85"
           >
             Get Notified on WhatsApp
           </a>

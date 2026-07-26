@@ -43,13 +43,13 @@ export function ConfirmDialog({
         <div className="flex justify-end gap-3">
           <button
             onClick={onCancel}
-            className="text-fg cursor-pointer rounded-full border border-line bg-transparent px-5 py-2.5 text-[13px] font-bold tracking-wide uppercase"
+            className="text-fg cursor-pointer rounded-full border border-line bg-transparent px-5 py-2.5 text-[13px] font-bold tracking-wide uppercase transition-colors duration-200 hover:bg-card"
           >
             {cancelLabel}
           </button>
           <button
             onClick={onConfirm}
-            className="cursor-pointer rounded-full border-none bg-red-500 px-5 py-2.5 text-[13px] font-bold tracking-wide text-white uppercase"
+            className="cursor-pointer rounded-full border-none bg-red-500 px-5 py-2.5 text-[13px] font-bold tracking-wide text-white uppercase transition-colors duration-200 hover:bg-red-600"
           >
             {confirmLabel}
           </button>

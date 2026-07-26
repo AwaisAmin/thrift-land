@@ -42,7 +42,7 @@ export function Navbar() {
           href={waLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-accent flex shrink-0 items-center gap-1.5 rounded-full px-4.5 py-2.5 whitespace-nowrap text-[#0b0b0d]"
+          className="bg-accent flex shrink-0 items-center gap-1.5 rounded-full px-4.5 py-2.5 whitespace-nowrap text-[#0b0b0d] transition-opacity duration-200 hover:opacity-85"
         >
           WhatsApp Us
         </a>

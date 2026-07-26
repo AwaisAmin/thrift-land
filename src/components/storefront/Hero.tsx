@@ -27,7 +27,7 @@ export function Hero({ products }: { products: Product[] }) {
           <div className="flex flex-wrap gap-4">
             <a
               href="#shop"
-              className="bg-fg text-bg-solid rounded-full px-8 py-4.5 text-[15px] font-bold tracking-wide uppercase"
+              className="bg-fg text-bg-solid rounded-full px-8 py-4.5 text-[15px] font-bold tracking-wide uppercase transition-opacity duration-200 hover:opacity-85"
             >
               Shop The Drop
             </a>
@@ -35,7 +35,7 @@ export function Hero({ products }: { products: Product[] }) {
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full border-2 border-fg px-8 py-4 text-[15px] font-bold tracking-wide uppercase"
+              className="border-fg flex items-center gap-2 rounded-full border-2 px-8 py-4 text-[15px] font-bold tracking-wide uppercase transition-colors duration-200 hover:bg-fg hover:text-bg-solid"
             >
               Chat on WhatsApp
             </a>

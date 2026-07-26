@@ -28,7 +28,7 @@ export function ProductCard({ product, delay = 0 }: { product: Product; delay?: 
           {qty === 0 ? (
             <button
               onClick={() => addToCart(product)}
-              className="bg-fg text-bg-solid cursor-pointer rounded-full border-none px-4 py-2.5 text-[13px] font-bold uppercase"
+              className="bg-fg text-bg-solid cursor-pointer rounded-full border-none px-4 py-2.5 text-[13px] font-bold uppercase transition-opacity duration-200 hover:opacity-85"
             >
               Add to Cart
             </button>
@@ -37,7 +37,7 @@ export function ProductCard({ product, delay = 0 }: { product: Product; delay?: 
               <button
                 onClick={() => decQty(product.id)}
                 aria-label="Decrease quantity"
-                className="flex h-6 w-6 cursor-pointer items-center justify-center rounded-full border-none bg-line text-fg leading-none"
+                className="flex h-6 w-6 cursor-pointer items-center justify-center rounded-full border-none bg-line text-fg leading-none transition-transform duration-150 hover:scale-110 active:scale-95"
               >
                 −
               </button>
@@ -45,7 +45,7 @@ export function ProductCard({ product, delay = 0 }: { product: Product; delay?: 
               <button
                 onClick={() => incQty(product.id)}
                 aria-label="Increase quantity"
-                className="bg-accent flex h-6 w-6 cursor-pointer items-center justify-center rounded-full border-none text-[#0b0b0d] leading-none"
+                className="bg-accent flex h-6 w-6 cursor-pointer items-center justify-center rounded-full border-none text-[#0b0b0d] leading-none transition-transform duration-150 hover:scale-110 active:scale-95"
               >
                 +
               </button>

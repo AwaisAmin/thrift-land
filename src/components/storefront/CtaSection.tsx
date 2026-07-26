@@ -16,7 +16,7 @@ export function CtaSection() {
           href={waLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-accent inline-flex items-center gap-2.5 rounded-full px-10 py-5 text-base font-bold tracking-wide text-[#0b0b0d] uppercase"
+          className="bg-accent inline-flex items-center gap-2.5 rounded-full px-10 py-5 text-base font-bold tracking-wide text-[#0b0b0d] uppercase transition-opacity duration-200 hover:opacity-85"
         >
           Message Us On WhatsApp →
         </a>

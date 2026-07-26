@@ -125,7 +125,7 @@ export function ProductFormModal() {
           <button
             onClick={saveProduct}
             disabled={saving}
-            className="bg-fg text-bg-solid mt-2 cursor-pointer rounded-full border-none p-4 text-sm font-bold tracking-wide uppercase disabled:opacity-50"
+            className="bg-fg text-bg-solid mt-2 cursor-pointer rounded-full border-none p-4 text-sm font-bold tracking-wide uppercase transition-opacity duration-200 hover:opacity-85 disabled:opacity-50 disabled:hover:opacity-50"
           >
             {saving ? "Saving…" : saveLabel}
           </button>

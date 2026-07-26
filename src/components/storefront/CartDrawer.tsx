@@ -57,7 +57,7 @@ export function CartDrawer() {
               href={checkoutLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] p-4 text-[15px] font-bold tracking-wide text-white uppercase"
+              className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] p-4 text-[15px] font-bold tracking-wide text-white uppercase transition-opacity duration-200 hover:opacity-85"
             >
               Checkout on WhatsApp →
             </a>
