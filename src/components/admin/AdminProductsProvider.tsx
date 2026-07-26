@@ -19,9 +19,8 @@ import { uploadProductPhoto } from "@/lib/uploadProductPhoto";
 
 const EMPTY_FORM: ProductFormValues = {
   name: "",
-  size: "9",
+  size: "42",
   condition: "Like New",
-  color: "",
   price: "",
   status: "Active",
   photoUrl: undefined,
@@ -95,7 +94,6 @@ export function AdminProductsProvider({
       name: product.name,
       size: product.size,
       condition: product.condition,
-      color: product.color,
       status: product.status,
       price: String(product.price),
       photoUrl: product.photoUrl,

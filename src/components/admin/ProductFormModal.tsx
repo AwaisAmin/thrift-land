@@ -70,7 +70,7 @@ export function ProductFormModal() {
           </FormField>
 
           <div className="grid grid-cols-2 gap-4">
-            <FormField label="Size (UK)">
+            <FormField label="Size (EU)">
               <select
                 value={form.size}
                 onChange={(e) => setField("size", e.target.value as typeof form.size)}
@@ -98,25 +98,15 @@ export function ProductFormModal() {
             </FormField>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <FormField label="Color">
-              <input
-                value={form.color}
-                onChange={(e) => setField("color", e.target.value)}
-                placeholder="e.g. Grey/Black"
-                className={fieldControlClass}
-              />
-            </FormField>
-            <FormField label="Price (Rs.)">
-              <input
-                value={form.price}
-                onChange={(e) => setField("price", e.target.value)}
-                placeholder="e.g. 3500"
-                inputMode="numeric"
-                className={fieldControlClass}
-              />
-            </FormField>
-          </div>
+          <FormField label="Price (Rs.)">
+            <input
+              value={form.price}
+              onChange={(e) => setField("price", e.target.value)}
+              placeholder="e.g. 3500"
+              inputMode="numeric"
+              className={fieldControlClass}
+            />
+          </FormField>
 
           <FormField label="Status">
             <select

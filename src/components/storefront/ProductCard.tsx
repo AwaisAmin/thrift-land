@@ -22,9 +22,7 @@ export function ProductCard({ product, delay = 0 }: { product: Product; delay?: 
       </div>
       <div className="p-5">
         <div className="mb-1 text-[17px] font-bold">{product.name}</div>
-        <div className="mb-3.5 text-[13px] opacity-60">
-          Size UK {product.size} · {product.color}
-        </div>
+        <div className="mb-3.5 text-[13px] opacity-60">Size EU {product.size}</div>
         <div className="flex items-center justify-between">
           <div className="font-display text-[22px]">Rs. {formatRs(product.price)}</div>
           {qty === 0 ? (

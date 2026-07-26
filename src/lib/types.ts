@@ -1,7 +1,7 @@
 export const CONDITIONS = ["Like New", "9/10", "8/10", "Gently Worn"] as const;
 export type Condition = (typeof CONDITIONS)[number];
 
-export const SIZES = ["6", "7", "8", "9", "10", "11", "12"] as const;
+export const SIZES = ["38", "39", "40", "41", "42", "43", "44", "45", "46"] as const;
 export type Size = (typeof SIZES)[number];
 
 export const PRODUCT_STATUSES = ["Active", "Sold"] as const;
@@ -11,7 +11,6 @@ export interface Product {
   id: string;
   name: string;
   size: Size;
-  color: string;
   condition: Condition;
   /** Price in whole Rupees, e.g. 3500. */
   price: number;
@@ -37,7 +36,7 @@ export interface Stat {
 
 export type ProductFormValues = Pick<
   Product,
-  "name" | "size" | "condition" | "color" | "status" | "photoUrl"
+  "name" | "size" | "condition" | "status" | "photoUrl"
 > & {
   /** Kept as free text while the field is being edited. */
   price: string;

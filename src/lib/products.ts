@@ -5,7 +5,6 @@ interface ProductRow {
   id: string;
   name: string;
   size: string;
-  color: string;
   condition: string;
   price: number;
   status: string;
@@ -17,7 +16,6 @@ function fromRow(row: ProductRow): Product {
     id: row.id,
     name: row.name,
     size: row.size as Product["size"],
-    color: row.color,
     condition: row.condition as Product["condition"],
     price: row.price,
     status: row.status as Product["status"],
@@ -29,7 +27,6 @@ function toRow(form: ProductFormValues) {
   return {
     name: form.name.trim(),
     size: form.size,
-    color: form.color.trim(),
     condition: form.condition,
     price: Number(form.price.replace(/,/g, "")) || 0,
     status: form.status,

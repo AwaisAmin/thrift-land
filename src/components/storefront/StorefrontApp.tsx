@@ -17,7 +17,7 @@ import { FEATURES } from "@/lib/data";
 import type { Product } from "@/lib/types";
 
 const MARQUEE_TEXT =
-  "Authentic Only ✦ Sizes UK 6–12 ✦ Inspected & Cleaned ✦ DM To Cop ✦ Free Local Delivery ✦ ";
+  "Authentic Only ✦ Sizes EU 38–46 ✦ Inspected & Cleaned ✦ DM To Cop ✦ Free Local Delivery ✦ ";
 
 export function StorefrontApp({ products }: { products: Product[] }) {
   return (

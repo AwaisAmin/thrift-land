@@ -17,11 +17,8 @@ export function ProductRow({ product, onEdit, onDelete }: ProductRowProps) {
       <div className="flex h-10 w-10 items-center justify-center rounded-[10px] bg-card font-display text-[11px]">
         {product.condition}
       </div>
-      <div>
-        <div className="font-bold">{product.name}</div>
-        <div className="text-xs opacity-55">{product.color}</div>
-      </div>
-      <div>UK {product.size}</div>
+      <div className="font-bold">{product.name}</div>
+      <div>EU {product.size}</div>
       <div>{product.condition}</div>
       <div className="font-display text-[15px]">Rs. {formatRs(product.price)}</div>
       <div>

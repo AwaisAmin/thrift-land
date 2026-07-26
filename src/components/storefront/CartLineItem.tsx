@@ -18,7 +18,7 @@ export function CartLineItem({ line, onInc, onDec }: CartLineItemProps) {
       <div className="flex-1">
         <div className="text-[15px] font-bold">{product.name}</div>
         <div className="mb-2 text-xs opacity-60">
-          Size UK {product.size} · Rs. {formatRs(product.price)}
+          Size EU {product.size} · Rs. {formatRs(product.price)}
         </div>
         <div className="flex items-center gap-2.5">
           <button
