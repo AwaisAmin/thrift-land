@@ -17,7 +17,7 @@ export function CartDrawer() {
       <div
         onClick={closeCart}
         aria-hidden="true"
-        className={`fixed inset-0 z-[70] bg-black/50 transition-opacity duration-300 ${
+        className={`fixed inset-0 z-70 bg-black/50 transition-opacity duration-300 ${
           isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
       />
@@ -25,7 +25,7 @@ export function CartDrawer() {
       <div
         role="dialog"
         aria-label="Shopping cart"
-        className={`fixed top-0 right-0 bottom-0 z-[71] flex w-[min(420px,92vw)] flex-col border-l border-line bg-surface transition-transform duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed top-0 right-0 bottom-0 z-71 flex w-[min(420px,92vw)] flex-col border-l border-line bg-surface transition-transform duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

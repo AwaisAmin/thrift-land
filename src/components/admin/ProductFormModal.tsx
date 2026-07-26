@@ -27,7 +27,7 @@ export function ProductFormModal() {
       <div
         onClick={closeModal}
         aria-hidden="true"
-        className={`fixed inset-0 z-[70] bg-black/50 transition-opacity duration-300 ${
+        className={`fixed inset-0 z-70 bg-black/50 transition-opacity duration-300 ${
           modalOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
       />
@@ -35,7 +35,7 @@ export function ProductFormModal() {
       <div
         role="dialog"
         aria-label={modalTitle}
-        className={`fixed top-0 right-0 bottom-0 z-[71] w-[min(440px,92vw)] overflow-y-auto border-l border-line bg-surface p-7 transition-transform duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed top-0 right-0 bottom-0 z-71 w-[min(440px,92vw)] overflow-y-auto border-l border-line bg-surface p-7 transition-transform duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           modalOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

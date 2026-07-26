@@ -42,7 +42,7 @@ export function Hero({ products }: { products: Product[] }) {
           </div>
         </div>
         <div className="relative">
-          <div className="border-accent-ink animate-spin-slow absolute top-[-30px] right-0 z-[2] flex h-27.5 w-27.5 items-center justify-center rounded-full border-2 border-dashed text-center font-display text-xs tracking-wide uppercase">
+          <div className="border-accent-ink animate-spin-slow absolute -top-7.5 right-0 z-2 flex h-27.5 w-27.5 items-center justify-center rounded-full border-2 border-dashed text-center font-display text-xs tracking-wide uppercase">
             100% AUTHENTIC CHECKED
           </div>
           <div className="aspect-4/5 overflow-hidden rounded-3xl shadow-[0_40px_80px_-20px_rgba(0,0,0,0.35)]">
