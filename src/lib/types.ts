@@ -37,7 +37,7 @@ export interface Stat {
 
 export type ProductFormValues = Pick<
   Product,
-  "name" | "size" | "condition" | "color" | "status"
+  "name" | "size" | "condition" | "color" | "status" | "photoUrl"
 > & {
   /** Kept as free text while the field is being edited. */
   price: string;

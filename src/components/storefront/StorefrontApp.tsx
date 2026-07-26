@@ -13,22 +13,23 @@ import { CtaSection } from "./CtaSection";
 import { Footer } from "./Footer";
 import { WhatsAppFab } from "./WhatsAppFab";
 import { CartDrawer } from "./CartDrawer";
-import { PRODUCTS, FEATURES } from "@/lib/data";
+import { FEATURES } from "@/lib/data";
+import type { Product } from "@/lib/types";
 
 const MARQUEE_TEXT =
   "Authentic Only ✦ Sizes UK 6–12 ✦ Inspected & Cleaned ✦ DM To Cop ✦ Free Local Delivery ✦ ";
 
-export function StorefrontApp() {
+export function StorefrontApp({ products }: { products: Product[] }) {
   return (
     <ThemeProvider>
-      <CartProvider products={PRODUCTS}>
+      <CartProvider products={products}>
         <div className="relative overflow-x-hidden">
           <DotGridBackground />
           <Navbar />
-          <Hero />
+          <Hero products={products} />
           <MarqueeBar text={MARQUEE_TEXT} />
           <FeaturesSection features={FEATURES} />
-          <ProductGrid products={PRODUCTS} />
+          <ProductGrid products={products} />
           <StorySection />
           <CtaSection />
           <Footer />

@@ -15,7 +15,9 @@
       "Bash(curl -s \"http://localhost:3000/_next/static/chunks/%5Broot-of-the-server%5D__0k-h2jt._.css\" -o /tmp/app2.css)",
       "Bash(sed -n '505,522p' /tmp/app2.css)",
       "Skill(artifact-design)",
-      "Skill(artifact-design:*)"
+      "Skill(artifact-design:*)",
+      "Bash(npx eslint *)",
+      "Bash(npx tsc *)"
     ]
   }
 }

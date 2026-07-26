@@ -1,8 +1,21 @@
 "use client";
 
-import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
 import type { Product, ProductFormValues } from "@/lib/types";
-import { PRODUCTS } from "@/lib/data";
+import {
+  createProduct,
+  updateProduct,
+  deleteProduct as deleteProductAction,
+} from "@/app/admin/actions";
+import { uploadProductPhoto } from "@/lib/uploadProductPhoto";
 
 const EMPTY_FORM: ProductFormValues = {
   name: "",
@@ -11,6 +24,7 @@ const EMPTY_FORM: ProductFormValues = {
   color: "",
   price: "",
   status: "Active",
+  photoUrl: undefined,
 };
 
 interface AdminProductsContextValue {
@@ -18,30 +32,56 @@ interface AdminProductsContextValue {
   modalOpen: boolean;
   editingId: string | null;
   photoId: string;
+  photoPreview: string | undefined;
   form: ProductFormValues;
   saveLabel: string;
   modalTitle: string;
+  saving: boolean;
   openAddModal: () => void;
   openEditModal: (product: Product) => void;
   closeModal: () => void;
   setField: <K extends keyof ProductFormValues>(key: K, value: ProductFormValues[K]) => void;
+  setPhotoFile: (file: File) => void;
   saveProduct: () => void;
   deleteProduct: (id: string) => void;
 }
 
 const AdminProductsContext = createContext<AdminProductsContextValue | null>(null);
 
-export function AdminProductsProvider({ children }: { children: ReactNode }) {
-  const [products, setProducts] = useState<Product[]>(PRODUCTS);
+export function AdminProductsProvider({
+  initialProducts,
+  children,
+}: {
+  initialProducts: Product[];
+  children: ReactNode;
+}) {
+  const [products, setProducts] = useState<Product[]>(initialProducts);
   const [modalOpen, setModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [photoSeed, setPhotoSeed] = useState(0);
   const [form, setForm] = useState<ProductFormValues>(EMPTY_FORM);
+  const [photoFile, setPhotoFileState] = useState<File | null>(null);
+  const [photoObjectUrl, setPhotoObjectUrl] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+
+  // Revoke the previous blob URL whenever it's replaced or the provider unmounts.
+  useEffect(() => {
+    return () => {
+      if (photoObjectUrl) URL.revokeObjectURL(photoObjectUrl);
+    };
+  }, [photoObjectUrl]);
+
+  const setPhotoFile = (file: File) => {
+    setPhotoFileState(file);
+    setPhotoObjectUrl(URL.createObjectURL(file));
+  };
 
   const openAddModal = () => {
     setEditingId(null);
     setPhotoSeed((s) => s + 1);
     setForm(EMPTY_FORM);
+    setPhotoFileState(null);
+    setPhotoObjectUrl(null);
     setModalOpen(true);
   };
 
@@ -54,7 +94,10 @@ export function AdminProductsProvider({ children }: { children: ReactNode }) {
       color: product.color,
       status: product.status,
       price: String(product.price),
+      photoUrl: product.photoUrl,
     });
+    setPhotoFileState(null);
+    setPhotoObjectUrl(null);
     setModalOpen(true);
   };
 
@@ -63,24 +106,34 @@ export function AdminProductsProvider({ children }: { children: ReactNode }) {
   const setField = <K extends keyof ProductFormValues>(key: K, value: ProductFormValues[K]) =>
     setForm((prev) => ({ ...prev, [key]: value }));
 
-  const saveProduct = () => {
+  const saveProduct = useCallback(async () => {
     if (!form.name.trim() || !form.price.trim()) return;
     const price = Number(form.price.replace(/,/g, "")) || 0;
 
-    if (editingId) {
-      setProducts((prev) =>
-        prev.map((p) => (p.id === editingId ? { ...p, ...form, price, id: editingId } : p))
-      );
-    } else {
-      const id = "p" + Date.now();
-      setProducts((prev) => [{ ...form, price, id }, ...prev]);
-    }
-    setModalOpen(false);
-  };
+    setSaving(true);
+    try {
+      const photoUrl = photoFile ? await uploadProductPhoto(photoFile) : form.photoUrl;
+      const payload: ProductFormValues = { ...form, photoUrl };
 
-  const deleteProduct = (id: string) => {
+      if (editingId) {
+        await updateProduct(editingId, payload);
+        setProducts((prev) =>
+          prev.map((p) => (p.id === editingId ? { ...p, ...payload, price, id: editingId } : p))
+        );
+      } else {
+        const saved = await createProduct(payload);
+        setProducts((prev) => [saved, ...prev]);
+      }
+      setModalOpen(false);
+    } finally {
+      setSaving(false);
+    }
+  }, [form, editingId, photoFile]);
+
+  const deleteProduct = async (id: string) => {
     if (typeof window !== "undefined" && !window.confirm("Remove this listing?")) return;
     setProducts((prev) => prev.filter((p) => p.id !== id));
+    await deleteProductAction(id);
   };
 
   const value = useMemo<AdminProductsContextValue>(
@@ -89,17 +142,20 @@ export function AdminProductsProvider({ children }: { children: ReactNode }) {
       modalOpen,
       editingId,
       photoId: `admin-photo-${editingId ?? photoSeed}`,
+      photoPreview: photoObjectUrl ?? form.photoUrl,
       form,
       saveLabel: editingId ? "Save Changes" : "Add Listing",
       modalTitle: editingId ? "Edit Listing" : "Add Listing",
+      saving,
       openAddModal,
       openEditModal,
       closeModal,
       setField,
+      setPhotoFile,
       saveProduct,
       deleteProduct,
     }),
-    [products, modalOpen, editingId, photoSeed, form]
+    [products, modalOpen, editingId, photoSeed, form, photoObjectUrl, saving, saveProduct]
   );
 
   return <AdminProductsContext.Provider value={value}>{children}</AdminProductsContext.Provider>;

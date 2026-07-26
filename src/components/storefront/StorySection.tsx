@@ -6,7 +6,7 @@ export function StorySection() {
     <section id="story" className="relative z-10 overflow-hidden px-[5vw] py-30">
       <Reveal className="grid items-center gap-15 md:grid-cols-[0.9fr_1.1fr]">
         <div className="aspect-4/5 overflow-hidden rounded-3xl">
-          <ImageSlot label="Drop a shop/founder photo" alt="Thrift Land founder" />
+          <ImageSlot src="/images/hero-sneakers.jpg" alt="Thrift Land founder" />
         </div>
         <div>
           <div className="text-accent-ink mb-4.5 text-[13px] font-bold tracking-[3px] uppercase">Our Story</div>

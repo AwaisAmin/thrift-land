@@ -1,10 +1,10 @@
 import { ImageSlot } from "../ui/ImageSlot";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
-import { PRODUCTS } from "@/lib/data";
+import type { Product } from "@/lib/types";
 
-export function Hero() {
+export function Hero({ products }: { products: Product[] }) {
   const waLink = buildWhatsAppLink("Hi Thrift Land! I'm interested in your sneakers.");
-  const heroPhoto = PRODUCTS.find((p) => p.photoUrl)?.photoUrl;
+  const heroPhoto = products.find((p) => p.photoUrl)?.photoUrl ?? "/images/hero-sneakers.jpg";
 
   return (
     <section className="relative z-10 flex min-h-screen flex-col justify-center px-[5vw] pt-35 pb-15">

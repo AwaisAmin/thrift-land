@@ -8,8 +8,19 @@ import { useAdminProducts } from "./AdminProductsProvider";
 import { CONDITIONS, PRODUCT_STATUSES, SIZES } from "@/lib/types";
 
 export function ProductFormModal() {
-  const { modalOpen, modalTitle, saveLabel, photoId, form, setField, saveProduct, closeModal } =
-    useAdminProducts();
+  const {
+    modalOpen,
+    modalTitle,
+    saveLabel,
+    photoId,
+    photoPreview,
+    form,
+    setField,
+    setPhotoFile,
+    saveProduct,
+    closeModal,
+    saving,
+  } = useAdminProducts();
 
   return (
     <>
@@ -36,9 +47,18 @@ export function ProductFormModal() {
         </div>
 
         <div className="flex flex-col gap-4">
-          <div className="aspect-video overflow-hidden rounded-[14px]">
-            <ImageSlot key={photoId} label="Drop shoe photo" />
-          </div>
+          <label className="relative block aspect-video cursor-pointer overflow-hidden rounded-[14px]">
+            <input
+              type="file"
+              accept="image/*"
+              className="sr-only"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) setPhotoFile(file);
+              }}
+            />
+            <ImageSlot key={photoId} src={photoPreview} label="Click to add photo" />
+          </label>
 
           <FormField label="Name">
             <input
@@ -114,9 +134,10 @@ export function ProductFormModal() {
 
           <button
             onClick={saveProduct}
-            className="bg-fg text-bg-solid mt-2 cursor-pointer rounded-full border-none p-4 text-sm font-bold tracking-wide uppercase"
+            disabled={saving}
+            className="bg-fg text-bg-solid mt-2 cursor-pointer rounded-full border-none p-4 text-sm font-bold tracking-wide uppercase disabled:opacity-50"
           >
-            {saveLabel}
+            {saving ? "Saving…" : saveLabel}
           </button>
         </div>
       </div>

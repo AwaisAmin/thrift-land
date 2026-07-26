@@ -4,6 +4,7 @@ import { ThemeToggleButton } from "../ui/ThemeToggleButton";
 import { PlusIcon } from "../icons";
 import { useTheme } from "../theme/ThemeProvider";
 import { useAdminProducts } from "./AdminProductsProvider";
+import { signOutAdmin } from "@/app/admin/actions";
 
 export function AdminHeader() {
   const { darkMode, toggleTheme } = useTheme();
@@ -22,6 +23,12 @@ export function AdminHeader() {
           className="bg-accent flex cursor-pointer items-center gap-1.5 rounded-full border-none px-5 py-3 text-[13px] font-bold tracking-wide whitespace-nowrap text-[#0b0b0d] uppercase"
         >
           <PlusIcon /> Add Listing
+        </button>
+        <button
+          onClick={() => signOutAdmin()}
+          className="text-fg cursor-pointer rounded-full border border-line bg-transparent px-5 py-3 text-[13px] font-bold tracking-wide whitespace-nowrap uppercase"
+        >
+          Sign Out
         </button>
       </div>
     </div>

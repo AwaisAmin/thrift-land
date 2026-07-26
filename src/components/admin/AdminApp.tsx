@@ -7,6 +7,7 @@ import { AdminHeader } from "./AdminHeader";
 import { StatsGrid } from "./StatsGrid";
 import { ProductsTable } from "./ProductsTable";
 import { ProductFormModal } from "./ProductFormModal";
+import type { Product } from "@/lib/types";
 
 function AdminContent() {
   const { products } = useAdminProducts();
@@ -24,10 +25,10 @@ function AdminContent() {
   );
 }
 
-export function AdminApp() {
+export function AdminApp({ initialProducts }: { initialProducts: Product[] }) {
   return (
     <ThemeProvider>
-      <AdminProductsProvider>
+      <AdminProductsProvider initialProducts={initialProducts}>
         <AdminContent />
       </AdminProductsProvider>
     </ThemeProvider>
